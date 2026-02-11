@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import { RegisterVadlidation } from '../utils/validations.js';
 import { LoginVadlidation } from '../utils/validations.js';
 import jwt from 'jsonwebtoken';
+import userAuth from '../middlewares/userAuth.js';
 
 export const authRoute = express.Router();
 
@@ -72,7 +73,7 @@ authRoute.post('/login', async (req,res)=>{
 });
 
 // logout
-authRoute.post('/logout', async (req,res)=>{
+authRoute.post('/logout',userAuth, async (req,res)=>{
   try{
     // cleanup token in cookie
     res.cookie("token", null, {

@@ -31,4 +31,5 @@ API DESIGN
 - created models folder
    - user.js
       - created userSchema and model
-
+- created middleware folder
+   - userAuth.js
