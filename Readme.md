@@ -2,6 +2,12 @@
 
 API DESIGN
 
+Authentication
+- POST /user/register
+- POST /user/login
+- POST /user/logout
+- POST /user/change-password
+
 
 # Task - 1 - Installation
 - npm init
@@ -13,6 +19,7 @@ API DESIGN
 - npm i validator
 - npm i jsonwebtoken
 - npm i cookie-parser
+- npm i date-fns
 
 
 
@@ -24,7 +31,7 @@ API DESIGN
    - storing sensitive data
 - create routes folder
    - authRoute.js
-      - Authentication routes '/register, /login, /logout'
+      - Authentication routes '/register, /login, /logout and /change-password'
 - created config folder
    - db.js
      - configure database connection
@@ -33,3 +40,8 @@ API DESIGN
       - created userSchema and model
 - created middleware folder
    - userAuth.js
+   - roleAuth.js - to write the rolebased logic
+- create utils folder
+   - validations.js
+
+

@@ -33,6 +33,10 @@ const userSchema = mongoose.Schema({
             }
         }
     },
+    passwordChangedAt: {
+    type: Date,
+    default: null
+    },
     role: {
         type: String,
         require: true,

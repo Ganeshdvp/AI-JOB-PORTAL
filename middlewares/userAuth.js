@@ -12,14 +12,14 @@ const userAuth = async (req,res,next)=>{
 
     // validate token
     const decoded = jwt.verify(token, process.env.JWT_SECRET_CODE);
-    const {email} = decoded;
+    const {_id} = decoded;
 
     if(!decoded){
         throw new Error("token not valid!");
     }
 
     // find user
-    const user = await User.findOne({email});
+    const user = await User.findById(_id);
     if(!user){
         throw new Error("User not Exists!");
     }
