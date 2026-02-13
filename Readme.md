@@ -20,6 +20,7 @@ Authentication
 - npm i jsonwebtoken
 - npm i cookie-parser
 - npm i date-fns
+- npm i resend (for emails sending)
 
 
 
@@ -31,7 +32,7 @@ Authentication
    - storing sensitive data
 - create routes folder
    - authRoute.js
-      - Authentication routes '/register, /login, /logout and /change-password'
+      - Authentication routes '/register, /login, /logout, /change-password', /send-otp, and /verify-otp
 - created config folder
    - db.js
      - configure database connection
@@ -43,5 +44,4 @@ Authentication
    - roleAuth.js - to write the rolebased logic
 - create utils folder
    - validations.js
-
-
+   - sendEmail.js
