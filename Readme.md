@@ -2,11 +2,13 @@
 
 API DESIGN
 
-Authentication
+Authentication - Role based access
 - POST /user/register
 - POST /user/login
 - POST /user/logout
 - POST /user/change-password
+- POST /user/send-otp
+- POST /user/verify-otp
 
 
 # Task - 1 - Installation
