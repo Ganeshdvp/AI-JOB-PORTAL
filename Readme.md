@@ -47,3 +47,9 @@ Authentication - Role based access
 - create utils folder
    - validations.js
    - sendEmail.js
+
+# Task-3
+- create profileRoute.js file
+    - /profile/view - GET
+    - /profile/edit - PATCH
+    - /profile/view/:id - GET

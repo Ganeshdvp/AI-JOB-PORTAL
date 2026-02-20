@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { authRoute } from './routes/authRoute.js';
+import { profileRoute } from './routes/profileRoute.js';
 import { connectDB } from './config/db.js';
 import cookieParser from 'cookie-parser';
 
@@ -18,6 +19,7 @@ app.use(cookieParser())
 
 // Routes
 app.use('/user', authRoute);
+app.use('/profile', profileRoute);
 
 
 
