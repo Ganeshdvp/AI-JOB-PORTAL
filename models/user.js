@@ -42,16 +42,6 @@ const userSchema = mongoose.Schema({
         require: true,
         enum: ['admin', 'recruiter', 'user']
     }
-    // profileImage:{
-    //     type: String,
-    //     require: true,
-    //     default: "https://img.freepik.com/premium-vector/user-profile-icon-circle_1256048-12499.jpg?semt=ais_hybrid&w=740&q=80",
-    // },
-    // bgImage:{
-    //     type: String,
-    //     require: true,
-    //     default: "https://www.creativefabrica.com/wp-content/uploads/2019/02/User-icon-EPS10-by-Kanggraphic.jpg",
-    // },
 }, {timestamps: true});
 
 export const User = mongoose.model("User", userSchema);
