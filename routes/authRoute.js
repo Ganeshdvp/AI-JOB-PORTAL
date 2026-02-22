@@ -10,6 +10,7 @@ import {
   differenceInDays,
 } from "date-fns";
 import { sendEmail } from '../utils/sendEmail.js';
+import UserProfile from "../models/userProfile.js";
 
 
 export const authRoute = express.Router();
@@ -37,7 +38,14 @@ authRoute.post("/register", async (req, res) => {
       role,
       passwordChangedAt: new Date(),
     });
+    
     await newUser.save();
+
+    // create user profile based on role
+    if(newUser.role === "user"){
+      await UserProfile.create({userId: newUser._id});
+    }
+
     res
       .status(200)
       .json({ message: "Registration has been successful!", data: newUser });

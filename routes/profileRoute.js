@@ -2,6 +2,7 @@ import express from 'express';
 import userAuth from '../middlewares/userAuth.js';
 import {roleAuth} from '../middlewares/roleAuth.js';
 import { User } from '../models/user.js';
+import UserProfile from '../models/userProfile.js';
 
 export const profileRoute = express.Router();
 
@@ -9,7 +10,16 @@ export const profileRoute = express.Router();
 profileRoute.get('/view', userAuth, roleAuth("admin", "recruiter", "user"), async (req, res) => {
   try{
     const user = req.user;
-    res.json({ data: user });
+    const userId = user._id;
+
+    // find user profile in DB
+    const userProfile = await UserProfile.findOne({userId}).populate('userId', 'fullName email');
+    if (!userProfile) {
+      return res.status(404).json({ message: 'User profile not found' });
+    }
+    
+    // return user profile data
+    res.json({ data: userProfile });
   }
   catch(err){
     res.status(500).json({ message: 'Internal server error' });

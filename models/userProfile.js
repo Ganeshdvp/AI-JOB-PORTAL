@@ -108,7 +108,7 @@ const userProfileSchema = mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // fullName, email, password, role
+      ref: "User", // id, fullName, email, password, role
       required: true,
     },
     profileImage: {
@@ -151,7 +151,7 @@ const userProfileSchema = mongoose.Schema(
     },
     workType: {
       type: [String],
-      default: ["remote"],
+      default: [],
     },
     projects: {
       type: [userProjectSchema],
