@@ -111,6 +111,13 @@ const userProfileSchema = mongoose.Schema(
       ref: "User", // id, fullName, email, password, role
       required: true,
     },
+     fullName:{
+        type: String,
+        require: true,
+        minLength:4,
+        maxLength:55,
+        default: "Your Name",
+    },
     profileImage: {
       type: String,
       default:

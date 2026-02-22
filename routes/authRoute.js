@@ -18,7 +18,7 @@ export const authRoute = express.Router();
 // register
 authRoute.post("/register", async (req, res) => {
   try {
-    const { fullName, email, password, role } = req?.body;
+    const { email, password, role } = req?.body;
 
     // validate info
     RegisterVadlidation(req.body);
@@ -32,7 +32,6 @@ authRoute.post("/register", async (req, res) => {
 
     // creating user model
     const newUser = new User({
-      fullName,
       email,
       password: hashPassword,
       role,
