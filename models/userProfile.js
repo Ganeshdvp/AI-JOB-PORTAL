@@ -103,6 +103,48 @@ const userAchievementSchema = mongoose.Schema(
   { _id: false },
 );
 
+// user link schema
+const userLinkSchema = mongoose.Schema(
+  {
+    linkedinUrl: {
+      type: String,
+      default: "",
+    },
+    gitHubUrl: {
+      type: String,
+      default: "",
+    },
+    twitterUrl: {
+      type: String,
+      default: "",
+    },
+    portfolioUrl: {
+      type: String,
+      default: "",
+    },
+  }, { _id: false }
+);
+
+// contact schema
+const userContactSchema = mongoose.Schema(
+    {
+        email: {
+            type: String,
+            default: "",
+        },
+        phone: {
+            type: String,
+            default: "",
+        },
+        address: {
+            type: String,
+            default: "",
+        },
+    },
+    { _id: false }
+);
+
+
 // user profile schema
 const userProfileSchema = mongoose.Schema(
   {
@@ -171,6 +213,14 @@ const userProfileSchema = mongoose.Schema(
     achievements: {
       type: [userAchievementSchema],
       default: [],
+    },
+    resourceLinks: {
+      type: userLinkSchema,
+      default: {},
+    },
+    contact: {
+      type: userContactSchema,
+      default: {},
     },
   },
   { timestamps: true },

@@ -10,6 +10,12 @@ Authentication - Role based access
 - POST /user/send-otp
 - POST /user/verify-otp
 
+Profile - Role based
+- GET /profile/view
+- PATCH /profile/edit
+- GET /profile/view/:id
+
+
 
 # Task - 1 - Installation
 - npm init
@@ -49,7 +55,10 @@ Authentication - Role based access
    - sendEmail.js
 
 # Task-3
-- create profileRoute.js file
+- in models folder
+   - created userProfile.js
+   - created recruiterProfile.js
+- create profileRoute.js file and based on role api's called
     - /profile/view - GET
     - /profile/edit - PATCH
     - /profile/view/:id - GET
